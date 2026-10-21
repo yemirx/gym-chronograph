@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0E0E10">
+<title>Gym Chronograph</title>
+<meta name="description" content="Cronógrafo de entrenamiento: cronómetro, cuenta atrás, AMRAP, EMOM y Tabata.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="app">
+  <header>
+    <h1>Cronógrafo</h1>
+    <p class="subtitle">Cronómetro · Cuenta atrás · AMRAP · EMOM · Tabata</p>
+  </header>
+
+  <nav class="modes" role="tablist" aria-label="Modos del temporizador">
+    <button class="mode-btn" data-mode="crono" role="tab">Cronómetro</button>
+    <button class="mode-btn" data-mode="countdown" role="tab">Cuenta atrás</button>
+    <button class="mode-btn" data-mode="amrap" role="tab">AMRAP</button>
+    <button class="mode-btn" data-mode="emom" role="tab">EMOM</button>
+    <button class="mode-btn" data-mode="tabata" role="tab">Tabata</button>
+  </nav>
+
+  <section id="config" class="card config" hidden></section>
+
+  <section class="clock-wrap">
+    <div id="phase" class="phase" hidden></div>
+    <div id="clock" class="clock">00:00.0</div>
+    <div id="subinfo" class="subinfo"></div>
+    <div class="progress"><div id="progress-bar"></div></div>
+  </section>
+
+  <section class="controls">
+    <button id="btn-main" class="btn btn-primary">Iniciar</button>
+    <button id="btn-reset" class="btn btn-ghost">Reiniciar</button>
+    <button id="btn-round" class="btn btn-round" hidden>Ronda +1</button>
+  </section>
+
+  <p class="hint">Los pitidos suenan al terminar y en los últimos segundos. Mantén la pantalla activa durante el entrenamiento.</p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

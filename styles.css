@@ -1,0 +1,180 @@
+:root {
+  --bg: #0E0E10;
+  --surface: #17171B;
+  --surface-variant: #222229;
+  --border: #2E2E38;
+  --volt: #D9FF3D;
+  --volt-dark: #9DBB00;
+  --orange: #FF7A1A;
+  --text: #F2F2F5;
+  --text-secondary: #9A9AA6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h1 { font-size: 1.6rem; font-weight: 800; }
+.subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-top: 2px; }
+
+/* Mode selector */
+.modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mode-btn {
+  flex: 1 1 auto;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.mode-btn.active {
+  background: var(--volt);
+  border-color: var(--volt);
+  color: #0E0E10;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.config { display: flex; flex-direction: column; gap: 14px; }
+
+.config-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.config-label { color: var(--text-secondary); font-size: 0.85rem; }
+.config-value { font-size: 1.2rem; font-weight: 800; min-width: 110px; text-align: center; }
+
+.stepper { display: flex; gap: 8px; }
+
+.step-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-variant);
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Clock */
+.clock-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.phase {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--surface-variant);
+  color: var(--volt);
+}
+
+.phase.work { color: var(--orange); }
+
+.clock {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: clamp(3rem, 16vw, 4.5rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--volt);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.clock.finished { color: var(--orange); }
+
+.subinfo {
+  min-height: 1.4em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-variant);
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--volt);
+  border-radius: 999px;
+  transition: width 0.1s linear;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-primary { background: var(--volt); color: #0E0E10; min-width: 140px; }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn-round { background: var(--surface-variant); color: var(--volt); width: 100%; order: 3; }
+
+.hint { color: var(--text-secondary); font-size: 0.78rem; text-align: center; }
